@@ -1,0 +1,36 @@
+{
+  "name": "caniuse-cmd",
+  "version": "1.0.0",
+  "description": "caniuse for the command line",
+  "scripts": {
+    "test": "mocha"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "caniuse": "./bin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sgentle/caniuse-cmd.git"
+  },
+  "keywords": [
+    "caniuse"
+  ],
+  "author": "Sam Gentle <sam@samgentle.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgentle/caniuse-cmd/issues"
+  },
+  "homepage": "https://github.com/sgentle/caniuse-cmd",
+  "dependencies": {
+    "caniuse-db": "~1.0.0",
+    "coffee-script": "=1.9.1",
+    "colors": "^1.0.3",
+    "linewrap": "^0.2.1",
+    "open": "0.0.5",
+    "yargs": "~3.5.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1"
+  }
+}
