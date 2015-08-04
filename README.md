@@ -69,26 +69,33 @@ Yes!
 ```
 $ caniuse --help
 Options:
-  --short            Short output: show browsers on one line and don't display
-                     notes or description (default when displaying multiple
-                     results)
-  --long             Long output: show more information (default when
-                     displaying a single result)
-  --oneline          One-line output: just global percentages, no per-browser
-                     info                                       [default: false]
-  --oneline-browser  One-line output with browser info, implies --abbrev and
-                     --current                                  [default: false]
-  --abbrev           Abbreviate browser names                   [default: false]
-  --percentages      Include browser version usage percentages  [default: false]
-  --future           Include future browser versions            [default: false]
-  --current          Don't include old browser versions, equivalent to --era e0
-                                                                [default: false]
-  --era              How many versions back to go, e0 to e-37
-  --mobile           Include mobile browsers                    [default: false]
-  --desktop          Include desktop browsers                    [default: true]
-  --browser          Show results for these browsers, comma-separated
-                     (ie,firefox,chrome,safari,opera,ios_saf,op_mini,android,op_mob,bb,and_chr,and_ff,ie_mob,and_uc)
-
-  --web              Go to the search page on caniuse.com       [default: false]
-  --help             Show help
+Options:
+  --short, -s            Short output: show browsers on one line and don't
+                         display notes or description (default when displaying
+                         multiple results)                             [boolean]
+  --long, -l             Long output: show more information (default when
+                         displaying a single result)                   [boolean]
+  --oneline, -1          One-line output: just global percentages, no per-
+                         browser info                 [boolean] [default: false]
+  --oneline-browser, -2  One-line output with browser info, implies --abbrev and
+                         --current                    [boolean] [default: false]
+  --abbrev, -a           Abbreviate browser names     [boolean] [default: false]
+  --percentages, -p      Include browser version usage percentages
+                                                      [boolean] [default: false]
+  --future, -f           Include future browser versions
+                                                      [boolean] [default: false]
+  --current, -c          Don't include old browser versions, equivalent to --era
+                         e0                           [boolean] [default: false]
+  --era, -e              How many versions back to go, e0 to e-40       [string]
+  --mobile, -m           Include mobile browsers      [boolean] [default: false]
+  --desktop, -d          Include desktop browsers      [boolean] [default: true]
+  --browser, -b          Show results for these browsers, comma-separated (ie,
+                         edge,firefox,chrome,safari,opera,ios_saf,op_mini,
+                         android,bb,op_mob,and_chr,and_ff,ie_mob,and_uc)
+                                                                        [string]
+  --web, -w              Go to the search page on caniuse.com
+                                                      [boolean] [default: false]
+  --config, -C           Path to JSON config file
+                                 [string] [default: "/Users/user/.caniuse.json"]
+  --help                 Show help                                     [boolean]
 ```
