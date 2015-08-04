@@ -98,4 +98,23 @@ Options:
   --config, -C           Path to JSON config file
                                  [string] [default: "/Users/user/.caniuse.json"]
   --help                 Show help                                     [boolean]
+
+```
+
+
+Woah, that's a lot of options! Can haz config file?
+---------------------------------------------------
+
+Yes! You can specify your own defaults by creating a file called `.caniuse.json`
+and putting it in your home directory.
+
+For example, if you're primarily interested in mobile browsers two versions back:
+
+```
+{
+  "era": "e-2",
+  "mobile": true,
+  "desktop": false
+}
+
 ```
