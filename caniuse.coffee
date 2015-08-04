@@ -2,6 +2,8 @@ data = require 'caniuse-db/data.json'
 colors = require 'colors'
 linewrap = require 'linewrap'
 open = require 'open'
+path = require 'path'
+osHomedir = require 'os-homedir'
 
 argv = require 'yargs'
   .option 'short',
@@ -67,7 +69,12 @@ argv = require 'yargs'
     type: 'boolean'
     default: false
     describe: "Go to the search page on caniuse.com"
-
+  .option 'config',
+    alias: 'C'
+    type: 'string'
+    default: path.join(osHomedir(), '.caniuse.json')
+    describe: "Specify a config file with default options"
+  .config 'config'
   .help 'help'
   .argv
 
