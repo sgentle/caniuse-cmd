@@ -5,6 +5,13 @@ open = require 'open'
 path = require 'path'
 osHomedir = require 'os-homedir'
 
+if (Date.now()/1000 - data.updated) > 30*60*60*24
+  console.warn """
+    ⚠  Caniuse data is more than 30 days out of date!
+       Consider updating: npm install -g caniuse-cmd
+
+  """.yellow
+
 argv = require 'yargs'
   .option 'short',
     alias: 's'
