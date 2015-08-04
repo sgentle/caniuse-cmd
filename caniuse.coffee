@@ -174,7 +174,7 @@ showFeature = (result, opts={}) ->
 
   percentages = []
   percentages.push "✔ #{result.usage_perc_y}%".green if result.usage_perc_y
-  percentages.push "◒ #{result.usage_perc_a}%".yellow if result.usage_perc_y
+  percentages.push "◒ #{result.usage_perc_a}%".yellow if result.usage_perc_a
   percentages = percentages.join(' ')
 
   status = if opts.long then " [#{data.statuses[result.status]}]" else ''
