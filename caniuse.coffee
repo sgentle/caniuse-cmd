@@ -64,6 +64,11 @@ argv = require 'yargs'
     alias: 'b'
     type: 'string'
     describe: "Show results for these browsers, comma-separated (#{Object.keys(data.agents)})"
+  .option 'ascii',
+    alias: 'A'
+    type: 'boolean'
+    default: false
+    describe: "UTF-8 symbols replacement with ASCII description"
   .option 'web',
     alias: 'w'
     type: 'boolean'
@@ -74,11 +79,6 @@ argv = require 'yargs'
     type: 'string'
     default: path.join(osHomedir(), '.caniuse.json')
     describe: "Specify a config file with default options"
-  .option 'ascii',
-    alias: 'A'
-    type: 'boolean'
-    default: false
-    describe: "UTF symbols replacement with ASCII description"
   .config 'config'
   .help 'help'
   .argv
