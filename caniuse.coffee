@@ -5,13 +5,6 @@ open = require 'open'
 path = require 'path'
 osHomedir = require 'os-homedir'
 
-if (Date.now()/1000 - data.updated) > 30*60*60*24
-  console.warn """
-    ⚠  Caniuse data is more than 30 days out of date!
-       Consider updating: npm install -g caniuse-cmd
-
-  """.yellow
-
 argv = require 'yargs'
   .option 'short',
     alias: 's'
@@ -71,6 +64,11 @@ argv = require 'yargs'
     alias: 'b'
     type: 'string'
     describe: "Show results for these browsers, comma-separated (#{Object.keys(data.agents)})"
+  .option 'ascii',
+    alias: 'A'
+    type: 'boolean'
+    default: false
+    describe: "UTF-8 symbols replacement with ASCII description"
   .option 'web',
     alias: 'w'
     type: 'boolean'
@@ -84,6 +82,19 @@ argv = require 'yargs'
   .config 'config'
   .help 'help'
   .argv
+
+resultmap = y: "✔", n: "✘", a: "◒", u: "‽", i: "ⓘ", w: "⚠"
+supernums = "⁰¹²³⁴⁵⁶⁷⁸⁹"
+
+if argv["ascii"]
+  resultmap = y: "[Yes]", n: "[No]", a: "[Partly]", u: "[?!]", i: "[Info]", w: "[Warning]"
+
+if (Date.now()/1000 - data.updated) > 30*60*60*24
+  console.warn """
+    #{resultmap.w}  Caniuse data is more than 30 days out of date!
+       Consider updating: npm install -g caniuse-cmd
+
+  """.yellow
 
 if argv.web
   return open "http://caniuse.com/#search=#{encodeURIComponent argv._.join ' '}"
@@ -117,9 +128,6 @@ versionrange = [0, currentVersion]
 versionrange[1] = Infinity if argv.future
 versionrange[0] = currentVersion if argv.current
 versionrange[0] = eras.indexOf(argv.era) if argv.era
-
-resultmap = y: "✔", n: "✘", a: "◒", u: "‽"
-supernums = "⁰¹²³⁴⁵⁶⁷⁸⁹"
 
 # Generate the text for a single version result
 # FIXME: gross output parameter
@@ -173,8 +181,8 @@ showFeature = (result, opts={}) ->
   opts.short ?= !opts.long
 
   percentages = []
-  percentages.push "✔ #{result.usage_perc_y}%".green if result.usage_perc_y
-  percentages.push "◒ #{result.usage_perc_a}%".yellow if result.usage_perc_a
+  percentages.push resultmap.y + " #{result.usage_perc_y}%".green if result.usage_perc_y
+  percentages.push resultmap.a + " #{result.usage_perc_a}%".yellow if result.usage_perc_a
   percentages = percentages.join(' ')
 
   status = if opts.long then " [#{data.statuses[result.status]}]" else ''
@@ -219,7 +227,7 @@ showFeature = (result, opts={}) ->
   unless opts.short
     for num, note of result.notes_by_num when need_note[num]
       console.log wrap "\t\t#{supernums[num].yellow}#{note}"
-    console.log wrap "\tⓘ  #{result.notes.replace(/[\r\n]+/g, ' ')}" if result.notes
+    console.log wrap "\t " + resultmap.i + "  #{result.notes.replace(/[\r\n]+/g, ' ')}" if result.notes
 
 
 slowFind = (query) ->

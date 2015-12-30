@@ -97,6 +97,8 @@ Options:
                                                       [boolean] [default: false]
   --config, -C           Path to JSON config file
                                  [string] [default: "/Users/user/.caniuse.json"]
+  --ascii, -A            UTF-8 symbols replacement with ASCII description
+                                                      [boolean] [default: false]
   --help                 Show help                                     [boolean]
 
 ```
