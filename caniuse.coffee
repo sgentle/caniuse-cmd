@@ -4,7 +4,7 @@ linewrap = require 'linewrap'
 open = require 'open'
 path = require 'path'
 osHomedir = require 'os-homedir'
-os = require('os')
+os = require 'os'
 
 argv = require 'yargs'
   .option 'short',
