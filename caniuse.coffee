@@ -88,7 +88,7 @@ resultmap = y: "✔", n: "✘", a: "◒", u: "‽", i: "ⓘ", w: "⚠"
 supernums = "⁰¹²³⁴⁵⁶⁷⁸⁹"
 
 if (os.platform() == 'win32')
-  resultmap = y: "\u221A", n: "\u00D7", a: "\u0473", u: "\u203D", i: "\u24D8", w: "\u26A0"
+  resultmap = y: "\u221A", n: "\u00D7", a: "\u0398", u: "\u203D", i: "\u24D8", w: "\u26A0"
 
 if argv["ascii"]
   resultmap = y: "[Yes]", n: "[No]", a: "[Partly]", u: "[?!]", i: "[Info]", w: "[Warning]"
