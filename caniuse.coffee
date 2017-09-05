@@ -145,7 +145,7 @@ makeResult = (result, nums={}) ->
   out += "ᵖ" if "x" in result.support
   if note = result.support.match(/#(\d+)/)?[1]
     nums[note] = true
-    out += supernums[note]
+    out += supernums[note].cyan
 
   if argv.percentages and result.usage
     out += " " unless out.slice(-1) is "\u2800"
@@ -230,8 +230,8 @@ showFeature = (result, opts={}) ->
 
   unless opts.short
     for num, note of result.notes_by_num when need_note[num]
-      console.log wrap "\t\t#{supernums[num].yellow}#{note}"
-    console.log wrap "\t " + resultmap.i + "  #{result.notes.replace(/[\r\n]+/g, ' ')}" if result.notes
+      console.log wrap "\t\t#{supernums[num].cyan} #{note}"
+    console.log wrap "\t #{resultmap.i}  #{result.notes.replace(/[\r\n]+/g, ' ')}" if result.notes
 
 
 slowFind = (query) ->
