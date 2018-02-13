@@ -1,0 +1,18 @@
+name: caniuse
+version: git
+summary: Caniuse command line tool
+description: |
+ Just what you've always wanted, it's a caniuse command line tool! All the power of caniuse.com with none of the nice UI or interactivity!
+
+grade: stable
+confinement: strict
+
+apps:
+  caniuse:
+    command: caniuse
+    plugs: [network]
+
+parts:
+  caniuse:
+    source: .
+    plugin: nodejs
