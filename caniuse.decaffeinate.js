@@ -15,8 +15,25 @@ const colors = require('colors');
 const linewrap = require('linewrap');
 const os = require('os');
 const { WritableStreamBuffer } = require('stream-buffers');
+const argsParser = require('./args-parser');
+
+function prepareArgv(argv) {
+  // allow for asString/toStreams('Service Workers'), for example.
+  if (typeof argv === 'string') {
+    return argsParser.parse([argv]);
+  }
+
+  // allow for asString/toStreams(['Service Workers', 'URL API']), for example.
+  if (Array.isArray(argv)) {
+    return argsParser.parse(argv);
+  }
+
+  return argv;
+}
 
 function toStreams(argv, stdout, stderr) {
+
+argv = prepareArgv(argv);
 
 stdout = stdout || process.stdout;
 stderr = stderr || process.stderr;
@@ -326,6 +343,8 @@ return (function() {
 }
 
 function asString(argv) {
+  argv = prepareArgv(argv);
+
   const stdout = new WritableStreamBuffer();
   const stderr = new WritableStreamBuffer();
 
