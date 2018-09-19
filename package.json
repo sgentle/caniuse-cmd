@@ -28,6 +28,7 @@
     "linewrap": "^0.2.1",
     "open": "0.0.5",
     "os-homedir": "^1.0.1",
+    "stream-buffers": "^3.0.2",
     "yargs": "git+https://github.com/sgentle/yargs.git#config-booleans"
   },
   "devDependencies": {}
