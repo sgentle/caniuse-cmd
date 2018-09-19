@@ -31,7 +31,5 @@
     "os-homedir": "^1.0.1",
     "yargs": "git+https://github.com/sgentle/yargs.git#config-booleans"
   },
-  "devDependencies": {
-    "mocha": "^2.2.1"
-  }
+  "devDependencies": {}
 }
