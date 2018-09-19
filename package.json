@@ -24,7 +24,6 @@
   "homepage": "https://github.com/sgentle/caniuse-cmd",
   "dependencies": {
     "caniuse-db": "~1.0.0",
-    "coffee-script": "=1.9.1",
     "colors": "^1.0.3",
     "linewrap": "^0.2.1",
     "open": "0.0.5",
