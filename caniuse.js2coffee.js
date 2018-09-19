@@ -1,5 +1,10 @@
 var agents, argv, colors, currentVersion, data, eras, linewrap, makeResult, makeResults, open, os, osHomedir, path, resultmap, searchkey, showFeature, slowFind, supernums, types, versionrange, wrap, xwrap,
-  indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+  indexOf = [].indexOf || function(item) {
+    for (var i = 0, l = this.length; i < l; i++) {
+      if (i in this && this[i] === item) return i;
+    }
+    return -1;
+  };
 
 data = require('caniuse-db/data.json');
 
