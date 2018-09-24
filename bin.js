@@ -1,3 +1,2 @@
 #!/usr/bin/env node
-require('coffee-script/register');
-require('./caniuse.coffee');
+require('./caniuse-cli.js');
